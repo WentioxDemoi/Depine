@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/fonts/Outfit-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+html,
+body,
+:root {
+  background-color: black;
+  font-family: "Outfit", sans-serif;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -o-user-select: text;
+  user-select: text;
+}
+
+p,
+li {
+  font-size: 20px;
+}
+/* src/app/globals.css */
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+#doc ol {
+  counter-reset: item;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+#doc li {
+  display: block;
+}
+
+#section > ol > li {
+  font-size: 30px;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#doc > ol > div > li:before,
+#section > ol > li:before {
+  content: counters(item, ".") ". ";
+  counter-increment: item;
+}
